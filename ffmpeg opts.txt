@@ -1,0 +1,27 @@
+To see - use:
+man ffmpeg
+
+-ss position (input/output)
+    When used as an input option (before "-i"), seeks in this input
+    file to position. Note that in most formats it is not possible to
+    seek exactly, so ffmpeg will seek to the closest seek point before
+    position.  When transcoding and -accurate_seek is enabled (the
+    default), this extra segment between the seek point and position
+    will be decoded and discarded. When doing stream copy or when
+    -noaccurate_seek is used, it will be preserved.
+
+-sseof position (input)
+    Like the "-ss" option but relative to the "end of file". That is
+    negative values are earlier in the file, 0 is at EOF.
+
+-t duration (input/output)
+    When used as an input option (before "-i"), limit the duration of data read from the
+    input file.
+
+    When used as an output option (before an output url), stop writing the output after its
+    duration reaches duration.
+
+    duration must be a time duration specification, see the Time duration section in the
+    ffmpeg-utils(1) manual.
+
+    -to and -t are mutually exclusive and -t has priority.
